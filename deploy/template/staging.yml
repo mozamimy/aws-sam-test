@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'A serverless sample application.'
+Resources:
+  SampleFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      CodeUri: '../../'
+      Handler: 'index.handler'
+      Runtime: 'nodejs6.10'
+      FunctionName: 'sample'
+      MemorySize: 128
+      Timeout: 3
+      Events:
+        GetEvent:
+          Type: 'Api'
+          Properties:
+            Path: '/'
+            Method: 'get'
